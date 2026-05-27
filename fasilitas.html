@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fasilitas - SMK Negeri 3 Gunungsitoli</title>
+    <style>
+        /* --- GAYA DASAR --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background-color: #f8fafc;
+            color: #334155;
+            line-height: 1.6;
+        }
+
+        /* --- NAVBAR ELEGAN --- */
+        .navbar {
+            background-color: #ffffff;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 15px 20px;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+        }
+
+        .nav-item a {
+            text-decoration: none;
+            color: #64748b;
+            font-weight: 600;
+            font-size: 0.95rem;
+            padding: 8px 16px;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-item a:hover, .nav-item a.active {
+            color: #003366;
+            background-color: #f1f5f9;
+        }
+
+        /* --- WADAH UTAMA (CONTAINER) --- */
+        .container {
+            max-width: 1100px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            color: #003366;
+            margin-bottom: 10px;
+            font-size: 2rem;
+            font-weight: 700;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: #64748b;
+            margin-bottom: 40px;
+            font-size: 1.1rem;
+        }
+
+        /* --- GRID FASILITAS --- */
+        .fasilitas-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        /* --- KARTU FASILITAS --- */
+        .fasilitas-card {
+            background: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            border: 1px solid #e2e8f0;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .fasilitas-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Pengaturan Gambar Fasilitas Agar Rapi dan Proporsional */
+        .fasilitas-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover; /* Menghindari gambar gepeng/distorsi */
+            display: block;
+            background: linear-gradient(135deg, #002244 0%, #003366 100%); /* Warna cadangan jika gambar tidak ketemu */
+        }
+
+        /* Detail Teks Kartu */
+        .fasilitas-info {
+            padding: 20px;
+        }
+
+        .fasilitas-name {
+            font-size: 1.2rem;
+            color: #003366;
+            margin-bottom: 8px;
+            font-weight: 700;
+        }
+
+        .fasilitas-desc {
+            color: #475569;
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            background-color: #0f172a;
+            color: #94a3b8;
+            text-align: center;
+            padding: 25px 0;
+            margin-top: 60px;
+            font-size: 0.9rem;
+            border-top: 1px solid #1e293b;
+        }
+
+        /* --- RESPONSIVE MOBILE --- */
+        @media (max-width: 768px) {
+            .nav-container {
+                padding: 10px;
+            }
+
+            .nav-menu {
+                gap: 10px;
+            }
+
+            .nav-item a {
+                font-size: 0.85rem;
+                padding: 6px 12px;
+            }
+
+            .fasilitas-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .section-title {
+                font-size: 1.6rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <ul class="nav-menu" id="navMenu">
+                <li class="nav-item"><a href="index.html">Home</a></li>
+                <li class="nav-item"><a href="profil.html">Profil</a></li>
+                <li class="nav-item"><a href="jurusan.html">Jurusan</a></li>
+                <li class="nav-item"><a href="artikel.html">Artikel</a></li>
+                <li class="nav-item"><a href="#fasilitas" class="active">Fasilitas</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- KONTEN UTAMA -->
+    <div class="container" id="fasilitas">
+        <h2 class="section-title">Sarana & Fasilitas Sekolah</h2>
+        <p class="section-subtitle">Infrastruktur modern pendukung kenyamanan dan kelancaran proses belajar praktik siswa</p>
+
+        <div class="fasilitas-grid">
+            
+            <!-- FASILITAS 1 -->
+            <div class="fasilitas-card">
+                <!-- GANTI URL PADA SRC DENGAN NAMA FILE FOTO ASLI SEKOLAH -->
+                <img src="ja.jpg" alt="Laboratorium Komputer TKJ SMK Negeri 3 Gunungsitoli" class="fasilitas-image">
+                <div class="fasilitas-info">
+                    <h3 class="fasilitas-name">Laboratorium Komputer & Jaringan</h3>
+                    <p class="fasilitas-desc">
+                        Ruang praktik yang dilengkapi komputer spesifikasi tinggi, perangkat jaringan (router, switch, server), dan koneksi internet cepat untuk mendukung simulasi administrasi jaringan.
+                    </p>
+                </div>
+            </div>
+
+            <!-- FASILITAS 2 -->
+            <div class="fasilitas-card">
+                <!-- GANTI URL PADA SRC DENGAN NAMA FILE FOTO ASLI SEKOLAH -->
+                <img src="ujian.jpg" alt="Laboratorium Simulasi Perkantoran" class="fasilitas-image">
+                <div class="fasilitas-info">
+                    <h3 class="fasilitas-name">Laboratorium Simulasi Perkantoran</h3>
+                    <p class="fasilitas-desc">
+                        Ruangan yang dirancang menyerupai layout tempat kerja modern guna melatih keterampilan siswa dalam manajemen arsip digital, komunikasi bisnis, dan otomatisasi perkantoran.
+                    </p>
+                </div>
+            </div>
+
+            <!-- FASILITAS 3 -->
+            <div class="fasilitas-card">
+                <!-- GANTI URL PADA SRC DENGAN NAMA FILE FOTO ASLI SEKOLAH -->
+                <img src="pus.jpg" alt="Perpustakaan Digital" class="fasilitas-image">
+                <div class="fasilitas-info">
+                    <h3 class="fasilitas-name">Perpustakaan & Ruang Baca</h3>
+                    <p class="fasilitas-desc">
+                        Menyediakan koleksi buku cetak, modul pembelajaran kejuruan, serta komputer akses jurnal digital sebagai pusat literasi mandiri siswa dan guru dalam suasana yang tenang.
+                    </p>
+                </div>
+            </div>
+
+            <!-- FASILITAS 4 -->
+            <div class="fasilitas-card">
+                <!-- GANTI URL PADA SRC DENGAN NAMA FILE FOTO ASLI SEKOLAH -->
+                <img src="u.jpg" alt="Lapangan Olahraga" class="fasilitas-image">
+                <div class="fasilitas-info">
+                    <h3 class="fasilitas-name">Lapangan Olahraga & Upacara</h3>
+                    <p class="fasilitas-desc">
+                        Area luar ruangan serbaguna yang representatif untuk mendukung aktivitas pembinaan jasmani, kegiatan ekstrakurikuler, serta pelaksanaan upacara bendera berkala.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        <p> SMK Negeri 3 Gunungsitoli</p>
+    </footer>
+
+</body>
+</html>

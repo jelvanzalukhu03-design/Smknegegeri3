@@ -1,0 +1,274 @@
+<!DOCTYPE html>  
+<html lang="id">  
+<head>  
+    <meta charset="UTF-8">  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <title>Artikel & Berita - SMK Negeri 3 Gunungsitoli</title>  
+    <style>  
+        /* --- GAYA DASAR --- */  
+        * {  
+            margin: 0;  
+            padding: 0;  
+            box-sizing: border-box;  
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;  
+        }  
+        
+        body {  
+            background-color: #f8fafc;  
+            color: #334155;  
+            line-height: 1.6;  
+        }  
+
+        /* --- NAVBAR ELEGAN --- */  
+        .navbar {  
+            background-color: #ffffff;  
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);  
+            position: sticky;  
+            top: 0;  
+            z-index: 1000;  
+        }  
+
+        .nav-container {  
+            max-width: 1100px;  
+            margin: 0 auto;  
+            display: flex;  
+            justify-content: center;  
+            align-items: center;  
+            padding: 15px 20px;  
+        }  
+
+        .nav-menu {  
+            display: flex;  
+            list-style: none;  
+            gap: 25px;  
+        }  
+
+        .nav-item a {  
+            text-decoration: none;  
+            color: #64748b;  
+            font-weight: 600;  
+            font-size: 0.95rem;  
+            padding: 8px 16px;  
+            border-radius: 6px;  
+            transition: all 0.3s ease;  
+        }  
+
+        .nav-item a:hover, .nav-item a.active {  
+            color: #003366;  
+            background-color: #f1f5f9;  
+        }  
+
+        /* --- WADAH UTAMA (CONTAINER) --- */  
+        .container {  
+            max-width: 1100px;  
+            margin: 40px auto;  
+            padding: 0 20px;  
+        }  
+
+        .section-title {  
+            text-align: center;  
+            color: #003366;  
+            margin-bottom: 10px;  
+            font-size: 2rem;  
+            font-weight: 700;  
+        }  
+
+        .section-subtitle {  
+            text-align: center;  
+            color: #64748b;  
+            margin-bottom: 40px;  
+            font-size: 1.1rem;  
+        }  
+
+        /* --- GRID ARTIKEL --- */  
+        .artikel-grid {  
+            display: grid;  
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));  
+            gap: 30px;  
+        }  
+
+        /* --- KARTU ARTIKEL / BERITA --- */  
+        .artikel-card {  
+            background: #ffffff;  
+            border-radius: 12px;  
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);  
+            border: 1px solid #e2e8f0;  
+            overflow: hidden;  
+            display: flex;  
+            flex-direction: column;  
+            transition: transform 0.3s ease, box-shadow 0.3s ease;  
+        }  
+
+        .artikel-card:hover {  
+            transform: translateY(-5px);  
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);  
+        }  
+
+        /* Pengaturan Gambar Artikel agar Konsisten */  
+        .artikel-thumbnail {  
+            width: 100%;  
+            height: 210px;  
+            object-fit: cover; /* Memotong gambar secara proporsional agar pas di dalam kotak */  
+            display: block;  
+            background-color: #002244; /* Warna cadangan jika gambar gagal dimuat */  
+        }  
+
+        /* Konten di dalam Kartu */  
+        .artikel-body {  
+            padding: 25px;  
+            display: flex;  
+            flex-direction: column;  
+            flex-grow: 1;  
+        }  
+
+        .artikel-meta {  
+            font-size: 0.8rem;  
+            color: #94a3b8;  
+            margin-bottom: 10px;  
+            font-weight: 500;  
+            text-transform: uppercase;  
+            letter-spacing: 0.5px;  
+        }  
+
+        .artikel-title {  
+            font-size: 1.25rem;  
+            color: #003366;  
+            margin-bottom: 12px;  
+            font-weight: 700;  
+            line-height: 1.4;  
+        }  
+
+        .artikel-excerpt {  
+            color: #475569;  
+            font-size: 0.95rem;  
+            margin-bottom: 20px;  
+            flex-grow: 1;  
+        }  
+
+        /* Tombol Baca Selengkapnya */  
+        .read-more-btn {  
+            align-self: flex-start;  
+            text-decoration: none;  
+            color: #003366;  
+            font-weight: 600;  
+            font-size: 0.9rem;  
+            display: inline-flex;  
+            align-items: center;  
+            gap: 5px;  
+            transition: color 0.2s ease;  
+        }  
+
+        .read-more-btn:hover {  
+            color: #ffcc00;  
+        }  
+
+        /* --- FOOTER --- */  
+        footer {  
+            background-color: #0f172a;  
+            color: #94a3b8;  
+            text-align: center;  
+            padding: 25px 0;  
+            margin-top: 60px;  
+            font-size: 0.9rem;  
+            border-top: 1px solid #1e293b;  
+        }  
+
+        /* --- RESPONSIVE MOBILE --- */  
+        @media (max-width: 768px) {  
+            .nav-container {  
+                padding: 10px;  
+            }  
+
+            .nav-menu {  
+                gap: 10px;  
+            }  
+
+            .nav-item a {  
+                font-size: 0.85rem;  
+                padding: 6px 12px;  
+            }  
+
+            .artikel-grid {  
+                grid-template-columns: 1fr;  
+            }  
+              
+            .section-title {  
+                font-size: 1.6rem;  
+            }  
+        }  
+    </style>  
+</head>  
+<body>  
+
+<!-- NAVBAR -->  
+<nav class="navbar">  
+    <div class="nav-container">  
+        <ul class="nav-menu" id="navMenu">  
+            <li class="nav-item"><a href="index.html">Home</a></li>  
+            <li class="nav-item"><a href="profil.html">Profil</a></li>  
+            <li class="nav-item"><a href="jurusan.html">Jurusan</a></li>  
+            <li class="nav-item"><a href="artikel.html" class="active">Artikel</a></li>  
+            <li class="nav-item"><a href="fasilitas.html">Fasilitas</a></li>                  
+        </ul>  
+    </div>  
+</nav>  
+
+<!-- KONTEN UTAMA -->  
+<div class="container" id="artikel">  
+    <h2 class="section-title">Artikel & Berita Terbaru</h2>  
+    <p class="section-subtitle">Ikuti perkembangan informasi kegiatan dan prestasi di SMK Negeri 3 Gunungsitoli</p>  
+
+    <div class="artikel-grid">  
+          
+        <!-- ARTIKEL 1 -->  
+        <div class="artikel-card">  
+            <!-- GANTI URL DI DALAM SRC JIKA SUDAH ADA FILE GAMBAR NYA -->  
+            <img src="uk.jpg" alt="Pelaksanaan UKK SMK Negeri 3 Gunungsitoli" class="artikel-thumbnail">  
+            <div class="artikel-body">  
+                <div class="artikel-meta">Kegiatan Sekolah • 15 Mei 2026</div>  
+                <h3 class="artikel-title">Pelaksanaan Uji Kompetensi Keahlian (UKK) Berjalan Lancar</h3>  
+                <p class="artikel-excerpt">  
+                    Siswa tingkat akhir rumpun program keahlian Teknik Komputer Jaringan dan Manajemen Perkantoran sukses menempuh ujian praktik penjaminan mutu industri...  
+                </p>  
+                <a href="#" class="read-more-btn">Baca Selengkapnya &rarr;</a>  
+            </div>  
+        </div>  
+
+        <!-- ARTIKEL 2 -->  
+        <div class="artikel-card">  
+            <!-- GANTI URL DI DALAM SRC JIKA SUDAH ADA FILE GAMBAR NYA -->  
+            <img src="ju.jpg" alt="Juara LKS SMK Negeri 3 Gunungsitoli" class="artikel-thumbnail">  
+            <div class="artikel-body">  
+                <div class="artikel-meta">Prestasi • 2 Mei 2026</div>  
+                <h3 class="artikel-title">Siswa SMKN 3 Gunungsitoli Raih Juara di Lomba Kompetensi Siswa</h3>  
+                <p class="artikel-excerpt">  
+                    Kabar membanggakan datang dari perwakilan siswa bidang IT Network Systems Administration yang berhasil mengamankan posisi podium tingkat kota tahun ini...  
+                </p>  
+                <a href="#" class="read-more-btn">Baca Selengkapnya &rarr;</a>  
+            </div>  
+        </div>  
+
+        <!-- ARTIKEL 3 -->  
+        <div class="artikel-card">  
+            <!-- GANTI URL DI DALAM SRC JIKA SUDAH ADA FILE GAMBAR NYA -->  
+            <img src="1.jpg" alt="Kerjasama Industri SMK Negeri 3 Gunungsitoli" class="artikel-thumbnail">  
+            <div class="artikel-body">  
+                <div class="artikel-meta">Kemitraan • 20 April 2026</div>  
+                <h3 class="artikel-title">Perluas Link and Match, Sekolah Jajaki Kerja Sama dengan Perusahaan Lokal</h3>  
+                <p class="artikel-excerpt">  
+                    Sebagai upaya mempercepat penyerapan lulusan ke dunia kerja, pihak manajemen sekolah mengadakan sinkronisasi kurikulum berbasis industri bersama beberapa mitra strategis...  
+                </p>  
+                <a href="#" class="read-more-btn">Baca Selengkapnya &rarr;</a>  
+            </div>  
+        </div>  
+
+    </div>  
+</div>  
+
+<!-- FOOTER -->  
+<footer>  
+    <p> SMK Negeri 3 Gunungsitoli</p>  
+</footer>  
+
+</body>  
+</html>  

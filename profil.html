@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profil SMK Negeri 3 Gunungsitoli</title>
+    <style>
+        /* --- RESET DAN GAYA DASAR --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: #f8fafc;
+            color: #334155;
+            line-height: 1.7;
+        }
+
+        /* --- NAVBAR ELEGAN --- */
+        .navbar {
+            background-color: #ffffff;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 15px 20px;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+        }
+
+        .nav-item a {
+            text-decoration: none;
+            color: #64748b;
+            font-weight: 600;
+            font-size: 0.95rem;
+            padding: 8px 16px;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-item a:hover, .nav-item a.active {
+            color: #003366;
+            background-color: #f1f5f9;
+        }
+
+        /* --- HEADER --- */
+        header {
+            background: linear-gradient(135deg, #002244 0%, #003366 100%);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+            position: relative;
+        }
+
+        header::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: #ffcc00;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+
+        header p {
+            font-size: 1.1rem;
+            font-style: italic;
+            color: #cbd5e1;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* --- WADAH UTAMA (CONTAINER) --- */
+        .container {
+            max-width: 1100px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        /* --- GAYA KARTU / SECTION --- */
+        .card {
+            background: #ffffff;
+            padding: 35px;
+            margin-bottom: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+            border: 1px solid #e2e8f0;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
+        }
+
+        h2 {
+            color: #003366;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+            font-size: 1.6rem;
+            font-weight: 700;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background-color: #ffcc00;
+            border-radius: 2px;
+        }
+
+        /* --- GRID VISI & MISI --- */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-bottom: 10px;
+        }
+
+        .misi-list {
+            list-style: none;
+        }
+
+        .misi-list li {
+            margin-bottom: 10px;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .misi-list li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #ffcc00;
+            font-weight: bold;
+        }
+
+        /* --- DAFTAR JURUSAN --- */
+        .jurusan-list {
+            list-style-type: none;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .jurusan-list li {
+            background: #f8fafc;
+            padding: 15px 20px;
+            border-left: 4px solid #003366;
+            font-weight: 600;
+            border-radius: 0 8px 8px 0;
+            color: #1e293b;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.02);
+            transition: background 0.2s;
+        }
+
+        .jurusan-list li:hover {
+            background: #f1f5f9;
+        }
+
+        /* --- KONTAK --- */
+        .contact-info p {
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+        }
+
+        .contact-info strong {
+            width: 90px;
+            color: #003366;
+            display: inline-block;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            background-color: #0f172a;
+            color: #94a3b8;
+            text-align: center;
+            padding: 25px 0;
+            margin-top: 60px;
+            font-size: 0.9rem;
+            border-top: 1px solid #1e293b;
+        }
+
+        /* --- RESPONSIVE MOBILE --- */
+        @media (max-width: 768px) {
+            header {
+                padding: 40px 20px;
+            }
+
+            header h1 {
+                font-size: 1.8rem;
+            }
+
+            .nav-container {
+                padding: 10px;
+            }
+
+            .nav-menu {
+                gap: 10px;
+            }
+
+            .nav-item a {
+                font-size: 0.85rem;
+                padding: 6px 12px;
+            }
+            
+            .card {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <ul class="nav-menu" id="navMenu">
+                <li class="nav-item"><a href="index.html" class="active">Home</a></li>
+                <li class="nav-item"><a href="profil.html">Profil</a></li>
+                <li class="nav-item"><a href="jurusan.html">Jurusan</a></li>
+                <li class="nav-item"><a href="artikel.html">artikel</a></li>
+                <li class="nav-item"><a href="fasilitas.html">fasilitas</a></li>                                
+            </ul>
+        </div>
+    </nav>
+
+    <!-- HEADER -->
+    <header>
+        <h1>SMK NEGERI 3 GUNUNGSITOLI</h1>
+        <p>Membentuk Generasi Berkarakter, Kompeten, dan Siap Kerja</p>
+    </header>
+
+    <!-- KONTEN UTAMA -->
+    <div class="container">
+        
+        <!-- TENTANG SEKOLAH -->
+        <section class="card" id="profil">
+            <h2>Profil Singkat</h2>
+            <p><strong>SMK Negeri 3 Gunungsitoli</strong> merupakan salah satu lembaga pendidikan kejuruan yang berkompeten di Kota Gunungsitoli, Sumatera Utara. Sekolah ini berkomitmen untuk menyelenggarakan pendidikan yang berorientasi pada kebutuhan dunia usaha, dunia industri, dan dunia kerja (DUDIKA), serta membekali siswa dengan keterampilan praktis dan akhlak yang mulia.</p>
+        </section>
+
+        <!-- VISI & MISI -->
+        <div class="grid">
+            <section class="card">
+                <h2>Visi</h2>
+                <p>"Terwujudnya SMK Negeri 3 Gunungsitoli sebagai pusat pendidikan kejuruan yang menghasilkan lulusan yang beriman, bertakwa, unggul dalam prestasi, dan siap bersaing di era global."</p>
+            </section>
+
+            <section class="card">
+                <h2>Misi</h2>
+                <ul class="misi-list">
+                    <li>Menanamkan keimanan dan ketakwaan melalui kegiatan keagamaan.</li>
+                    <li>Menyelenggarakan pembelajaran yang berbasis teknologi dan kewirausahaan.</li>
+                    <li>Menjalin kerja sama yang erat dengan dunia usaha dan industri.</li>
+                    <li>Meningkatkan kompetensi tenaga pendidik dan kependidikan secara berkelanjutan.</li>
+                </ul>
+            </section>
+        </div>
+
+        <!-- PROGRAM KEAHLIAN / JURUSAN -->
+        <section class="card" id="jurusan">
+            <h2>Program Keahlian (Jurusan)</h2>
+            <p>SMK Negeri 3 Gunungsitoli menyediakan beberapa kompetensi keahlian pilihan yang disesuaikan dengan perkembangan teknologi dan industri:</p>
+            <ul class="jurusan-list">
+                <li>Teknik Komputer dan Jaringan (TKJ)</li>
+                <li>Manajemen Perkantoran (MP)</li>
+            </ul>
+        </section>
+
+        <!-- KONTAK -->
+        <section class="card" id="kontak">
+            <h2>Informasi & Kontak</h2>
+            <div class="contact-info">
+                <p><strong>Alamat</strong>: Jl. Desa Dahana Gunungsitoli</p>
+                <p><strong>Email</strong>: info@smkn3gunungsitoli.sch.id</p>
+                <p><strong>Telepon</strong>: 0853-7194-1843</p>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>SMK Negeri 3 Gunungsitoli</p>
+    </footer>
+
+</body>
+</html>

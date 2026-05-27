@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jurusan SMK Negeri 3 Gunungsitoli</title>
+    <style>
+        /* --- GAYA DASAR --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background-color: #f8fafc;
+            color: #334155;
+            line-height: 1.6;
+        }
+
+        /* --- NAVBAR ELEGAN (BARU) --- */
+        .navbar {
+            background-color: #ffffff;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center; /* Menu rata tengah, ubah ke flex-end jika ingin rata kanan */
+            align-items: center;
+            padding: 15px 20px;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 25px; /* Jarak antar menu */
+        }
+
+        .nav-item a {
+            text-decoration: none;
+            color: #64748b;
+            font-weight: 600;
+            font-size: 0.95rem;
+            padding: 8px 16px;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+        }
+
+        /* Efek saat menu disorot atau aktif */
+        .nav-item a:hover, .nav-item a.active {
+            color: #003366;
+            background-color: #f1f5f9;
+        }
+
+        /* --- WADAH UTAMA (CONTAINER) --- */
+        .container {
+            max-width: 1100px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            color: #003366;
+            margin-bottom: 10px;
+            font-size: 2rem;
+            font-weight: 700;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: #64748b;
+            margin-bottom: 40px;
+            font-size: 1.1rem;
+        }
+
+        /* --- GRID JURUSAN --- */
+        .jurusan-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        /* --- KARTU JURUSAN ELEGAN --- */
+        .jurusan-card {
+            background: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+            border: 1px solid #e2e8f0;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .jurusan-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Badge warna jurusan */
+        .jurusan-header {
+            background: linear-gradient(135deg, #002244 0%, #003366 100%);
+            color: white;
+            padding: 25px;
+            position: relative;
+        }
+
+        .jurusan-header::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: #ffcc00;
+        }
+
+        .jurusan-header h3 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        .jurusan-header .singkatan {
+            font-size: 0.85rem;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 3px 10px;
+            border-radius: 20px;
+            display: inline-block;
+        }
+
+        /* Isi Konten Kartu */
+        .jurusan-body {
+            padding: 25px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .jurusan-deskripsi {
+            color: #475569;
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+        }
+
+        .sub-judul {
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: #003366;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 8px;
+        }
+
+        /* Daftar Detail */
+        .detail-list {
+            list-style: none;
+            margin-bottom: 20px;
+        }
+
+        .detail-list li {
+            font-size: 0.9rem;
+            margin-bottom: 6px;
+            padding-left: 20px;
+            position: relative;
+            color: #334155;
+        }
+
+        .detail-list li::before {
+            content: "•";
+            color: #ffcc00;
+            font-weight: bold;
+            font-size: 1.2rem;
+            position: absolute;
+            left: 0;
+            top: -2px;
+        }
+
+        /* --- RESPONSIF INTERFAS --- */
+        @media (max-width: 768px) {
+            .nav-container {
+                padding: 10px;
+            }
+
+            .nav-menu {
+                gap: 10px; /* Merapatkan menu di layar HP */
+            }
+
+            .nav-item a {
+                font-size: 0.85rem;
+                padding: 6px 12px;
+            }
+
+            .jurusan-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .section-title {
+                font-size: 1.6rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVBAR (Sekarang Sudah Rapi dengan CSS) -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <ul class="nav-menu" id="navMenu">
+                <li class="nav-item"><a href="index.html">Home</a></li>
+                <li class="nav-item"><a href="profil.html">Profil</a></li>
+                <li class="nav-item"><a href="jurusan.html" class="active">Jurusan</a></li>
+                <li class="nav-item"><a href="artikel.html">artikel</a></li>
+                <li class="nav-item"><a href="fasilitas.html">fasilitas</a></li>                
+            </ul>
+        </div>
+    </nav>
+
+    <!-- KONTEN UTAMA -->
+    <div class="container" id="jurusan">
+        <h2 class="section-title">Program Keahlian</h2>
+        <p class="section-subtitle">Pilihan jurusan terbaik untuk masa depan cerah di SMK Negeri 3 Gunungsitoli</p>
+
+        <div class="jurusan-grid">
+            
+            <!-- JURUSAN 1: TKJ -->
+            <div class="jurusan-card">
+                <div class="jurusan-header">
+                    <h3>Teknik Komputer dan Jaringan</h3>
+                    <span class="singkatan">TKJ / TJKT</span>
+                </div>
+                <div class="jurusan-body">
+                    <p class="jurusan-deskripsi">
+                        Jurusan yang mempelajari tentang perakitan komputer, instalasi sistem operasi, jaringan komputer (LAN/WAN), keamanan jaringan, serta administrasi server.
+                    </p>
+                    
+                    <div>
+                        <h4 class="sub-judul">Materi Pokok:</h4>
+                        <ul class="detail-list">
+                            <li>Troubleshooting Komputer & Laptop</li>
+                            <li>Konfigurasi Router & Switch (MikroTik/Cisco)</li>
+                            <li>Administrasi Sistem Jaringan & Cloud</li>
+                            <li>Cyber Security Dasar</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="sub-judul">Prospek Kerja:</h4>
+                        <ul class="detail-list">
+                            <li>Network Administrator</li>
+                            <li>IT Support / Teknisi Komputer</li>
+                            <li>Network Engineer</li>
+                            <li>Wirausaha (ISP / Service Center)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- JURUSAN 2: MANAJEMEN PERKANTORAN -->
+            <div class="jurusan-card">
+                <div class="jurusan-header">
+                    <h3>Manajemen Perkantoran</h3>
+                    <span class="singkatan">MP / MPLB</span>
+                </div>
+                <div class="jurusan-body">
+                    <p class="jurusan-deskripsi">
+                        Jurusan yang membekali siswa dengan keterampilan administrasi perkantoran modern, pengelolaan dokumen, komunikasi bisnis, kearsipan elektronik, dan layanan pelanggan.
+                    </p>
+                    
+                    <div>
+                        <h4 class="sub-judul">Materi Pokok:</h4>
+                        <ul class="detail-list">
+                            <li>Korespondensi Bisnis (Indonesia & Inggris)</li>
+                            <li>Otomatisasi Perkantoran (MS Office / G-Suite)</li>
+                            <li>Sistem Kearsipan Digital</li>
+                            <li>Public Relations & Customer Service</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="sub-judul">Prospek Kerja:</h4>
+                        <ul class="detail-list">
+                            <li>Sekretaris / Administrative Assistant</li>
+                            <li>Staff Administrasi (HRD / Keuangan)</li>
+                            <li>Resepsionis / Front Office</li>
+                            <li>Arsiparis / Pengelola Dokumen</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+</html>
